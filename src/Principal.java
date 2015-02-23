@@ -10,6 +10,100 @@
  */
 public class Principal extends javax.swing.JFrame {
 
+    public static class jugadores{
+        String nombre;
+        Integer cantidad;
+        externalParameters parametros;
+        jugadores siguiente;
+    }
+    
+    public static class externalParameters{
+        String key;
+        String value;
+        externalParameters siguiente;
+        
+    }
+    public static class objetoPlantaZombie{
+    
+    }
+    
+    static jugadores jugador=null;
+    static externalParameters parametros;
+    
+    public static void add_jugador(jugadores cab,externalParameters parametros,String nombre,String cantidad){
+        jugadores nuevo,copia;
+        nuevo = new jugadores();
+        nuevo.nombre = nombre;
+        nuevo.cantidad=Integer.parseInt(cantidad);
+        nuevo.parametros=parametros;
+        nuevo.siguiente = null;
+        if(cab == null)
+            cab = nuevo;
+        else{
+            copia = cab;
+            while(copia.siguiente!=null){
+                copia = copia.siguiente;
+            }
+            copia.siguiente = nuevo;
+        }
+        jugador=cab;
+    }
+    
+    public static void add_parametros(externalParameters cab,String key,String value){
+        externalParameters nuevo,copia;
+        nuevo = new externalParameters();
+        nuevo.key=key;
+        nuevo.value=value;
+        nuevo.siguiente = null;
+        if(cab == null)
+            cab = nuevo;
+        else{
+            copia = cab;
+            while(copia.siguiente!=null){
+                copia = copia.siguiente;
+            }
+            copia.siguiente = nuevo;
+        }
+        parametros=cab;
+    }
+    
+    public static void listado(externalParameters cab){
+        while(cab != null){
+            System.out.println(cab.key);
+            cab=cab.siguiente;
+        }
+    }
+    
+    public static void listadoPlayers(jugadores cab){
+        while(cab != null){
+            System.out.println("------Jugador------");
+            System.out.println(cab.nombre);
+            System.out.println(cab.cantidad);
+            externalParameters parametros = cab.parametros;
+            while(parametros!=null){
+                System.out.println("------Parametros------");
+                System.out.println(parametros.key);
+                System.out.println(parametros.value);
+                
+                parametros=parametros.siguiente;
+            }
+            cab=cab.siguiente;
+        }
+    }
+    
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Creates new form NewJFrame
      */
