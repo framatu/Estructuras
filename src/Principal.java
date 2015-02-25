@@ -13,6 +13,7 @@ public class Principal extends javax.swing.JFrame {
     public static class jugadores{
         String nombre;
         Integer cantidad;
+        Integer tipo;
         externalParameters parametros;
         jugadores siguiente;
     }
@@ -24,18 +25,29 @@ public class Principal extends javax.swing.JFrame {
         
     }
     public static class objetoPlantaZombie{
-    
+        Integer indice;
+        String nombre;
+        String imagen;
+        Integer ataque;
+        Integer defensa;
+        Integer tipoAtaque;
+
+        objetoPlantaZombie siguiente;
     }
     
     static jugadores jugador=null;
     static externalParameters parametros;
+    static objetoPlantaZombie plantas=null;
+    static objetoPlantaZombie zombies=null;
+    static Integer sequence=0;
     
-    public static void add_jugador(jugadores cab,externalParameters parametros,String nombre,String cantidad){
+    public static void add_jugador(jugadores cab,externalParameters parametros,String nombre,String cantidad,Integer tipo){
         jugadores nuevo,copia;
         nuevo = new jugadores();
         nuevo.nombre = nombre;
         nuevo.cantidad=Integer.parseInt(cantidad);
         nuevo.parametros=parametros;
+        nuevo.tipo=tipo;
         nuevo.siguiente = null;
         if(cab == null)
             cab = nuevo;
@@ -67,9 +79,8 @@ public class Principal extends javax.swing.JFrame {
         parametros=cab;
     }
     
-    public static void listado(externalParameters cab){
-        while(cab != null){
-            System.out.println(cab.key);
+    public static void listado(objetoPlantaZombie cab){
+        while(cab != null){ 
             cab=cab.siguiente;
         }
     }
@@ -91,8 +102,100 @@ public class Principal extends javax.swing.JFrame {
         }
     }
     
+    public static void add_planta(objetoPlantaZombie cab,Integer indice, String nombre,String imagen,Integer defensa,Integer ataque,Integer tipoAtaque){
+        objetoPlantaZombie nuevo,copia;
+        nuevo = new objetoPlantaZombie();
+        nuevo.indice=indice;
+        nuevo.nombre=nombre;
+        nuevo.imagen=imagen;
+        nuevo.ataque=ataque;
+        nuevo.defensa=defensa;
+        nuevo.tipoAtaque=tipoAtaque;
+        nuevo.siguiente = null;
+        if(cab == null)
+            cab = nuevo;
+        else{
+            copia = cab;
+            while(copia.siguiente!=null){
+                copia = copia.siguiente;
+            }
+            copia.siguiente = nuevo;
+        }
+        sequence++;
+        plantas=cab;
+    }
     
-
+    public static void add_zombie(objetoPlantaZombie cab,Integer indice, String nombre,String imagen,Integer defensa,Integer ataque,Integer tipoAtaque){
+        objetoPlantaZombie nuevo,copia;
+        nuevo = new objetoPlantaZombie();
+        nuevo.indice=indice;
+        nuevo.nombre=nombre;
+        nuevo.imagen=imagen;
+        nuevo.ataque=ataque;
+        nuevo.defensa=defensa;
+        nuevo.tipoAtaque=tipoAtaque;
+        nuevo.siguiente = null;
+        if(cab == null)
+            cab = nuevo;
+        else{
+            copia = cab;
+            while(copia.siguiente!=null){
+                copia = copia.siguiente;
+            }
+            copia.siguiente = nuevo;
+        }
+        sequence++;
+        zombies=cab;
+    }
+    
+    public static String[] vectorObject(objetoPlantaZombie lista){
+        String[] array = new String[100];
+        Integer indice=0;
+        while(lista != null){
+            array[indice]=lista.nombre;
+            indice++;
+            lista=lista.siguiente;
+        }
+        return array;
+    }
+    
+    public static objetoPlantaZombie findObject(objetoPlantaZombie lista,String nombre){
+        while(lista !=null){
+            if(lista.nombre.equalsIgnoreCase(nombre)){
+                return lista;
+            }
+            lista=lista.siguiente;
+        }
+        return null;
+    }
+    
+    public static void editObject(objetoPlantaZombie lista,Integer indice, String nombre,String imagen,Integer defensa,Integer ataque,Integer tipoAtaque){
+        objetoPlantaZombie copia = lista;
+        objetoPlantaZombie anterior = new objetoPlantaZombie();
+        while(copia!=null){
+            if(copia.indice==indice){
+                objetoPlantaZombie nuevo = new objetoPlantaZombie();
+                nuevo.indice=indice;
+                nuevo.nombre=nombre;
+                nuevo.imagen=imagen;
+                nuevo.ataque=ataque;
+                nuevo.defensa=defensa;
+                nuevo.tipoAtaque=tipoAtaque;
+                if(anterior==null){
+                    nuevo.siguiente=copia.siguiente;
+                    zombies=nuevo;
+                }else{
+                    anterior.siguiente=nuevo;
+                    nuevo.siguiente=copia.siguiente;
+                    zombies=lista;
+                }
+            }
+            anterior=copia;
+            copia=copia.siguiente;
+            
+        }
+        
+    }
 
 
     

@@ -113,7 +113,7 @@ public class Plantas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Principal.add_jugador(Principal.jugador,Principal.parametros,jTextField1.getText(),jTextField2.getText());        
+        Principal.add_jugador(Principal.jugador,Principal.parametros,jTextField1.getText(),jTextField2.getText(),0);        
         Principal.listadoPlayers(Principal.jugador);
         super.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
