@@ -116,8 +116,12 @@ public class Plantas extends javax.swing.JFrame {
         Principal.add_jugador(Principal.jugador,Principal.parametros,jTextField1.getText(),jTextField2.getText(),0);        
         Principal.listadoPlayers(Principal.jugador);
         super.dispose();
+        CrearPlanta planta = new CrearPlanta();
+        planta.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */

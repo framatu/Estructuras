@@ -1,0 +1,16 @@
+digraph G {
+Plantas->"planta1
+C:\Users\Maza\Documents\Tarea1_economia.docx
+2
+1
+0"
+"planta1
+C:\Users\Maza\Documents\Tarea1_economia.docx
+2
+1
+0"->"planta2
+C:\Users\Maza\Documents\Tarea1_economia.pdf
+4
+3
+1"
+}

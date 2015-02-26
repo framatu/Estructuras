@@ -1,0 +1,16 @@
+digraph G {
+Plantas->"zombie
+C:\Users\Maza\Documents\Tarea1_economia.pdf
+4
+3
+0"
+"zombie
+C:\Users\Maza\Documents\Tarea1_economia.pdf
+4
+3
+0"->"zombie2
+C:\Users\Maza\Documents\Tarea2_edd.pdf
+6
+4
+0"
+}
