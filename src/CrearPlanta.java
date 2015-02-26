@@ -23,15 +23,15 @@ import javax.swing.WindowConstants;
  *
  * @author Maza
  */
-public class CrearZombie extends javax.swing.JFrame {
+public class CrearPlanta extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearZombie
      */
-    public CrearZombie() {    
+    public CrearPlanta() {    
         initComponents();
         jRadioButton1.setSelected(true);
-        jList1.setListData(Principal.vectorObject(Principal.zombies));
+        jList1.setListData(Principal.vectorObject(Principal.plantas));
    
     }
 
@@ -62,6 +62,7 @@ public class CrearZombie extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
@@ -108,6 +109,11 @@ public class CrearZombie extends javax.swing.JFrame {
         jLabel6.setText("Tipo de Ataque");
 
         jRadioButton1.setText("Directo");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("OK");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +126,13 @@ public class CrearZombie extends javax.swing.JFrame {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("Disparo");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
             }
         });
 
@@ -137,6 +150,14 @@ public class CrearZombie extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2)
+                            .addComponent(jTextField3)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -148,16 +169,11 @@ public class CrearZombie extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4)))
-                        .addGap(0, 70, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3))))
+                                .addComponent(jButton4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(116, 116, 116)
+                                .addComponent(jRadioButton2)))
+                        .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -185,7 +201,9 @@ public class CrearZombie extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -220,14 +238,14 @@ public class CrearZombie extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(70, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +259,7 @@ public class CrearZombie extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 108, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -253,12 +271,17 @@ public class CrearZombie extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jList1.getSelectedValue()!=null){
             Principal.objetoPlantaZombie objeto = new Principal.objetoPlantaZombie();
-            objeto=Principal.findObject(Principal.zombies,jList1.getSelectedValue().toString());
+            objeto=Principal.findObject(Principal.plantas,jList1.getSelectedValue().toString());
             indice=objeto.indice;
             jTextField1.setText(objeto.nombre);
             jLabel3.setText(objeto.imagen);
             jTextField2.setText(objeto.defensa.toString());
             jTextField3.setText(objeto.ataque.toString());
+            if(objeto.tipoAtaque==0){
+                jRadioButton1.setSelected(true);
+            }else{
+                jRadioButton2.setSelected(true);
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -283,16 +306,16 @@ public class CrearZombie extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(indice==null){
-            Principal.add_zombie(Principal.zombies,Principal.sequence,jTextField1.getText(),jLabel3.getText(),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField3.getText()),(jRadioButton1.isSelected())?0:1);
+            Principal.add_planta(Principal.plantas,Principal.sequence,jTextField1.getText(),jLabel3.getText(),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField3.getText()),(jRadioButton1.isSelected())?0:1);
         }else{
-            Principal.editObjectZombie(Principal.zombies,indice, jTextField1.getText(),jLabel3.getText(),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField3.getText()),(jRadioButton1.isSelected())?0:1);
+            Principal.editObjectPlanta(Principal.plantas,indice, jTextField1.getText(),jLabel3.getText(),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField3.getText()),(jRadioButton1.isSelected())?0:1);
         }
-        jList1.setListData(Principal.vectorObject(Principal.zombies));
+        jList1.setListData(Principal.vectorObject(Principal.plantas));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Principal.deleteObjectZombie(Principal.zombies, indice);
-        jList1.setListData(Principal.vectorObject(Principal.zombies));
+        Principal.deleteObjectPlanta(Principal.plantas, indice);
+        jList1.setListData(Principal.vectorObject(Principal.plantas));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -303,6 +326,14 @@ public class CrearZombie extends javax.swing.JFrame {
         jLabel3.setText(null);
         jRadioButton1.setSelected(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        jRadioButton1.setSelected(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jRadioButton2.setSelected(false);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,24 +352,20 @@ public class CrearZombie extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearZombie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlanta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearZombie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlanta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearZombie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlanta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearZombie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CrearPlanta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                
-                
-                
-                new CrearZombie().setVisible(true);
+                new CrearPlanta().setVisible(true);
             }
         });
     }
@@ -360,6 +387,7 @@ public class CrearZombie extends javax.swing.JFrame {
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

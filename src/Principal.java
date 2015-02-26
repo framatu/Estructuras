@@ -169,9 +169,9 @@ public class Principal extends javax.swing.JFrame {
         return null;
     }
     
-    public static void editObject(objetoPlantaZombie lista,Integer indice, String nombre,String imagen,Integer defensa,Integer ataque,Integer tipoAtaque){
+    public static void editObjectZombie(objetoPlantaZombie lista,Integer indice, String nombre,String imagen,Integer defensa,Integer ataque,Integer tipoAtaque){
         objetoPlantaZombie copia = lista;
-        objetoPlantaZombie anterior = new objetoPlantaZombie();
+        objetoPlantaZombie anterior = null;
         while(copia!=null){
             if(copia.indice==indice){
                 objetoPlantaZombie nuevo = new objetoPlantaZombie();
@@ -184,21 +184,88 @@ public class Principal extends javax.swing.JFrame {
                 if(anterior==null){
                     nuevo.siguiente=copia.siguiente;
                     zombies=nuevo;
+                    break;
                 }else{
                     anterior.siguiente=nuevo;
                     nuevo.siguiente=copia.siguiente;
                     zombies=lista;
+                    break;    
                 }
             }
             anterior=copia;
             copia=copia.siguiente;
-            
         }
         
     }
 
+    public static void deleteObjectZombie(objetoPlantaZombie lista,Integer indice){
+        objetoPlantaZombie copia = lista;
+        objetoPlantaZombie anterior = null;
+        while(copia!=null){
+            if(copia.indice==indice){
+                if(anterior==null){
+                    copia=copia.siguiente;
+                    zombies=copia;
+                    break;
+                }else{
+                    anterior.siguiente=copia.siguiente;
+                    zombies=lista;
+                    break;
+                }
+            }
+            anterior=copia;
+            copia=copia.siguiente;   
+        }
+    }
+  
+    public static void editObjectPlanta(objetoPlantaZombie lista,Integer indice, String nombre,String imagen,Integer defensa,Integer ataque,Integer tipoAtaque){
+        objetoPlantaZombie copia = lista;
+        objetoPlantaZombie anterior = null;
+        while(copia!=null){
+            if(copia.indice==indice){
+                objetoPlantaZombie nuevo = new objetoPlantaZombie();
+                nuevo.indice=indice;
+                nuevo.nombre=nombre;
+                nuevo.imagen=imagen;
+                nuevo.ataque=ataque;
+                nuevo.defensa=defensa;
+                nuevo.tipoAtaque=tipoAtaque;
+                if(anterior==null){
+                    nuevo.siguiente=copia.siguiente;
+                    plantas=nuevo;
+                    break;
+                }else{
+                    anterior.siguiente=nuevo;
+                    nuevo.siguiente=copia.siguiente;
+                    plantas=lista;
+                    break;    
+                }
+            }
+            anterior=copia;
+            copia=copia.siguiente;
+        }
+        
+    }
 
-    
+    public static void deleteObjectPlanta(objetoPlantaZombie lista,Integer indice){
+        objetoPlantaZombie copia = lista;
+        objetoPlantaZombie anterior = null;
+        while(copia!=null){
+            if(copia.indice==indice){
+                if(anterior==null){
+                    copia=copia.siguiente;
+                    plantas=copia;
+                    break;
+                }else{
+                    anterior.siguiente=copia.siguiente;
+                    plantas=lista;
+                    break;
+                }
+            }
+            anterior=copia;
+            copia=copia.siguiente;   
+        }
+    }
     
     
     
